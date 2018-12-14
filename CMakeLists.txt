@@ -9,7 +9,9 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+set(CMAKE_THREAD_PREFER_PTHREAD ON)
 find_package(Boost REQUIRED COMPONENTS thread system)
+message("--- boost: ${Boost_LIBRARIES}")
 
 set(CATKIN_DISABLED false CACHE BOOL "Disable the catkin build, useful if catkin is present but a build outside of ros is done")
 if(NOT CATKIN_DISABLED)
